@@ -2,7 +2,7 @@ pipeline {
     agent none
     stages {
         stage ("java project") {
-        agent {label 'python-slave2' }    
+        agent {label 'master' }    
             steps {
                 parallel (
                     CODEPULL: {
@@ -18,7 +18,7 @@ pipeline {
             }
         }
         stage ("C# project") {
-            agent { label 'ravi-php' }
+            agent { label 'master' }
             steps {
                 parallel (
                     CODEPULL: {
@@ -31,7 +31,7 @@ pipeline {
             }
         }
         stage ("Python Project") { 
-            agent {label "siddu-php"}
+            agent {label "master"}
             steps {
                 parallel (
                     CODEPULL: {
